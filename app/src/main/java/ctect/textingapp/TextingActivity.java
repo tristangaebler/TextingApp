@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View;
 import android.graphics.Color;
@@ -16,6 +17,8 @@ public class TextingActivity extends AppCompatActivity {
 
     private Button startButton;
     private TextView titleBox;
+    private EditText phoneNumber;
+    private EditText TextMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,8 @@ public class TextingActivity extends AppCompatActivity {
         //Init for the variables startButton and titleBox
         startButton = (Button) findViewById(R.id.StartButton);
         titleBox = (TextView) findViewById(R.id.titleBox);
+        phoneNumber = (EditText) findViewById(R.id.phoneNumber);
+        TextMessage = (EditText) findViewById(R.id.TextMessage);
 
         setUpListeners();
     }
@@ -61,14 +66,14 @@ public class TextingActivity extends AppCompatActivity {
         greenColor = (int) (Math.random() * 256);
         blueColor = (int) (Math.random() * 256);
 
-        backgroundLayout.setBackgroundColor(Color.rgb(redColor, greenColor, blueColor));
+        //backgroundLayout.setBackgroundColor(Color.rgb(redColor, greenColor, blueColor));
 
     }
 
     protected void sendSMSMessage() {
 
-        String phoneNo = txtphoneNo.getText().toString();
-        String message = txtMessage.getText().toString();
+        String phoneNo = phoneNumber.getText().toString();
+        String message = TextMessage.getText().toString();
 
         try {
             SmsManager smsManager = SmsManager.getDefault();

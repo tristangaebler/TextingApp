@@ -21,4 +21,22 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="90dp" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/phoneNumber"
+        android:text="@string/PhoneNumber"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TextMessage"
+        android:layout_below="@+id/phoneNumber"
+        android:layout_alignLeft="@+id/phoneNumber"
+        android:layout_alignStart="@+id/phoneNumber"
+        android:layout_marginTop="45dp"
+        android:text="@string/TextMessage" />
+
 </RelativeLayout>
