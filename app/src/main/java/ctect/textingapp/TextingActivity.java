@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.view.View;
 import android.graphics.Color;
@@ -19,6 +20,7 @@ public class TextingActivity extends AppCompatActivity {
     private TextView titleBox;
     private EditText phoneNumber;
     private EditText TextMessage;
+    private RelativeLayout backgroundLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class TextingActivity extends AppCompatActivity {
         titleBox = (TextView) findViewById(R.id.titleBox);
         phoneNumber = (EditText) findViewById(R.id.phoneNumber);
         TextMessage = (EditText) findViewById(R.id.TextMessage);
+        backgroundLayout = (RelativeLayout) findViewById(R.id.backgroundLayout);
 
         setUpListeners();
     }
@@ -66,7 +69,7 @@ public class TextingActivity extends AppCompatActivity {
         greenColor = (int) (Math.random() * 256);
         blueColor = (int) (Math.random() * 256);
 
-        //backgroundLayout.setBackgroundColor(Color.rgb(redColor, greenColor, blueColor));
+        backgroundLayout.setBackgroundColor(Color.rgb(redColor, greenColor, blueColor));
 
     }
 
@@ -93,6 +96,7 @@ public class TextingActivity extends AppCompatActivity {
         startButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View buttonView){
                 sendSMSMessage();
+                changeBackgroundColor();
             }
         });
     }

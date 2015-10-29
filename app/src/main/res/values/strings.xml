@@ -3,6 +3,6 @@
     <string name="action_settings">Settings</string>
     <string name="TextingBox">Welcome to our app!</string>
     <string name="StartButton">Start</string>
-    <string name="PhoneNumber">Please enter your phone number.</string>
+    <string name="PhoneNumber">Please enter a phone number.</string>
     <string name="TextMessage">Please enter your text message</string>
 </resources>
