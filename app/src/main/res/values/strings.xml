@@ -5,4 +5,9 @@
     <string name="StartButton">Start</string>
     <string name="PhoneNumber">Please enter a phone number.</string>
     <string name="TextMessage">Please enter your text message</string>
+    <string name="contacts">Contacts</string>
+    <string name="title_activity_contact">Contact Activity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_contacts_picker">Contacts Picker Activity</string>
 </resources>

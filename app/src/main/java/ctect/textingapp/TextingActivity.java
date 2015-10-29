@@ -12,6 +12,7 @@ import android.view.View;
 import android.graphics.Color;
 import android.telephony.SmsManager;
 import android.widget.Toast;
+import android.content.Intent;
 
 
 public class TextingActivity extends AppCompatActivity {
@@ -21,6 +22,7 @@ public class TextingActivity extends AppCompatActivity {
     private EditText phoneNumber;
     private EditText TextMessage;
     private RelativeLayout backgroundLayout;
+    private Button contactButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class TextingActivity extends AppCompatActivity {
         phoneNumber = (EditText) findViewById(R.id.phoneNumber);
         TextMessage = (EditText) findViewById(R.id.TextMessage);
         backgroundLayout = (RelativeLayout) findViewById(R.id.backgroundLayout);
+        contactButton = (Button) findViewById(R.id.contactButton);
 
         setUpListeners();
     }
