@@ -14,15 +14,19 @@ import android.telephony.SmsManager;
 import android.widget.Toast;
 import android.content.Intent;
 
+import org.w3c.dom.Text;
+
 
 public class TextingActivity extends AppCompatActivity {
 
     private Button startButton;
+    private Button dadContact;
+    private Button momContact;
     private TextView titleBox;
     private EditText phoneNumber;
     private EditText TextMessage;
     private RelativeLayout backgroundLayout;
-    private Button contactButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +35,13 @@ public class TextingActivity extends AppCompatActivity {
 
         //Init for the variables startButton and titleBox
         startButton = (Button) findViewById(R.id.StartButton);
+        dadContact = (Button) findViewById(R.id.dadContact);
+        momContact = (Button) findViewById(R.id.momContact);
         titleBox = (TextView) findViewById(R.id.titleBox);
         phoneNumber = (EditText) findViewById(R.id.phoneNumber);
         TextMessage = (EditText) findViewById(R.id.TextMessage);
         backgroundLayout = (RelativeLayout) findViewById(R.id.backgroundLayout);
-        contactButton = (Button) findViewById(R.id.contactButton);
+
 
         setUpListeners();
     }
@@ -96,8 +102,18 @@ public class TextingActivity extends AppCompatActivity {
 
 
     private void setUpListeners() {
+        momContact.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View buttonView) {
+                phoneNumber.setText("18016666661");
+            }
+        });
+        dadContact.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View buttonView) {
+                phoneNumber.setText("8018799954");
+            }
+        });
         startButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View buttonView){
+            public void onClick(View buttonView) {
                 sendSMSMessage();
                 changeBackgroundColor();
             }
