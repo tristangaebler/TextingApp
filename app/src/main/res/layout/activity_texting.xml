@@ -63,4 +63,14 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/madeBy"
+        android:text="Cody and ...."
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/StartButton"
+        android:layout_alignStart="@+id/StartButton"
+        android:layout_marginBottom="41dp"/>
+
 </RelativeLayout>

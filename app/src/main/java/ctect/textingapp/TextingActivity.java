@@ -16,7 +16,9 @@ import android.content.Intent;
 
 import org.w3c.dom.Text;
 
-
+/**
+ * @author Cody Henrichsen  - Helped OH so much.
+ */
 public class TextingActivity extends AppCompatActivity {
 
     private Button startButton;
