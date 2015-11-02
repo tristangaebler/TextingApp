@@ -14,11 +14,18 @@ import android.telephony.SmsManager;
 import android.widget.Toast;
 import android.content.Intent;
 import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import org.w3c.dom.Text;
 
+
 import java.util.ArrayList;
 
+
+
+/**
+ * @author Cody Henrichsen  - Helped OH so much.
+ */
 
 public class TextingActivity extends AppCompatActivity {
 
@@ -59,8 +66,8 @@ public class TextingActivity extends AppCompatActivity {
 
     private void loadSpinner() {
         ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, messageList);
-        listAdapter.setDropDownViewResource(adnroid.R.layout.simple_spinner_dropdown_item);
-        listSpinner.setAdapter(dataAdapter);
+        listAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        textSpinner.setAdapter(listAdapter);
 
     }
 
