@@ -13,8 +13,11 @@ import android.graphics.Color;
 import android.telephony.SmsManager;
 import android.widget.Toast;
 import android.content.Intent;
+import android.widget.ArrayAdapter;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 
 public class TextingActivity extends AppCompatActivity {
@@ -26,6 +29,8 @@ public class TextingActivity extends AppCompatActivity {
     private EditText phoneNumber;
     private EditText TextMessage;
     private RelativeLayout backgroundLayout;
+    private Spinner  textSpinner;
+    private ArrayList<String> messageList;
 
 
     @Override
@@ -41,9 +46,22 @@ public class TextingActivity extends AppCompatActivity {
         phoneNumber = (EditText) findViewById(R.id.phoneNumber);
         TextMessage = (EditText) findViewById(R.id.TextMessage);
         backgroundLayout = (RelativeLayout) findViewById(R.id.backgroundLayout);
+        textSpinner = (Spinner) findViewById(R.id.spinner);
 
+        //ArrayList with warm message greetings
+        messageList = new ArrayList<String>();
+        messageList.add("Hi, how are you doing");
+        messageList.add("Hi mom, I leanred how to create a Text Message app today!");
+        messageList.add("Just wanted to say hi...:)");
 
         setUpListeners();
+    }
+
+    private void loadSpinner() {
+        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, messageList);
+        listAdapter.setDropDownViewResource(adnroid.R.layout.simple_spinner_dropdown_item);
+        listSpinner.setAdapter(dataAdapter);
+
     }
 
     @Override
