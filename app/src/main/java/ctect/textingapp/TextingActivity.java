@@ -58,6 +58,7 @@ public class TextingActivity extends AppCompatActivity {
 
         //ArrayList with warm message greetings
         messageList = new ArrayList<String>();
+        messageList.add("");
         messageList.add("Hi, how are you doing");
         messageList.add("Hi mom, I learned how to create a text message app today!");
         messageList.add("Talk dirty to me! dah dah dah");
