@@ -11,4 +11,5 @@
     <string name="dadContact">Dad</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_contacts_picker">Contacts Picker Activity</string>
+    <string name="messages">Messages</string>
 </resources>

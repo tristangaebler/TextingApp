@@ -26,6 +26,7 @@ import java.util.ArrayList;
 
 /**
  * @author Tristan Gaebler, Bodie Shane, Colm Laro, Ashton Brown, Braden Mabey, and tyler Jarrard.
+ * @version 2.0 This is the final version of our texting app. It can send messages to any preset or custom number. You can send preset messages or custom ones.
  */
 
 public class TextingActivity extends AppCompatActivity {
@@ -40,7 +41,10 @@ public class TextingActivity extends AppCompatActivity {
     private Spinner  textSpinner;
     private ArrayList<String> messageList;
 
-
+    /**
+     * This method initializes all of our class variables. It also adds text to our ArrayList. It calls the loadSpinner() method and the setUpListeners() method.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +81,9 @@ public class TextingActivity extends AppCompatActivity {
         setUpListeners();
     }
 
+    /**
+     * This method loads our spinner with messages that we can send.
+     */
     private void loadSpinner() {
         ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, messageList);
         listAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -107,6 +114,9 @@ public class TextingActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * This method randomly changes the background color of our app.
+     */
     private void changeBackgroundColor() {
         int redColor;
         int greenColor;
@@ -120,6 +130,9 @@ public class TextingActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This is the method that actually sends the SMS message. We declared the phoneNo and message variables. We used a try-catch control statement to send the message and watches for failures.
+     */
     protected void sendSMSMessage() {
 
         String phoneNo = phoneNumber.getText().toString();
