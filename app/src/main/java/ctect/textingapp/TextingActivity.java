@@ -15,16 +15,17 @@ import android.widget.Toast;
 import android.content.Intent;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.AdapterView;
+
 
 import org.w3c.dom.Text;
-
 
 import java.util.ArrayList;
 
 
 
 /**
- * @author Cody Henrichsen  - Helped OH so much.
+ * @author Tristan Gaebler, Bodie Shane, Colm Laro, Ashton Brown, Braden Mabey, and tyler Jarrard.
  */
 
 public class TextingActivity extends AppCompatActivity {
@@ -58,9 +59,16 @@ public class TextingActivity extends AppCompatActivity {
         //ArrayList with warm message greetings
         messageList = new ArrayList<String>();
         messageList.add("Hi, how are you doing");
-        messageList.add("Hi mom, I leanred how to create a Text Message app today!");
-        messageList.add("Just wanted to say hi...:)");
+        messageList.add("Hi mom, I learned how to create a text message app today!");
+        messageList.add("Talk dirty to me! dah dah dah");
+        messageList.add("Text me like one of your French girls ;)");
+        messageList.add("Error your message could not be sent. Please try again later. Error number: 362950");
+        messageList.add("I'm learning about important dates in history. Wanna be one of them?");
+        messageList.add("Just wanted to say hi...;)");
 
+
+
+        loadSpinner();
         setUpListeners();
     }
 
@@ -129,18 +137,27 @@ public class TextingActivity extends AppCompatActivity {
     private void setUpListeners() {
         momContact.setOnClickListener(new View.OnClickListener(){
             public void onClick(View buttonView) {
-                phoneNumber.setText("18016666661");
+                phoneNumber.setText("8014626010");
             }
         });
         dadContact.setOnClickListener(new View.OnClickListener() {
             public void onClick(View buttonView) {
-                phoneNumber.setText("8018799954");
+                phoneNumber.setText("16502530000");
             }
         });
         startButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View buttonView) {
                 sendSMSMessage();
                 changeBackgroundColor();
+            }
+        });
+        textSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                TextMessage.setText(textSpinner.getSelectedItem().toString());
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) {
+                TextMessage.setText("");
             }
         });
     }
