@@ -65,7 +65,12 @@ public class TextingActivity extends AppCompatActivity {
         messageList.add("Error your message could not be sent. Please try again later. Error number: 362950");
         messageList.add("I'm learning about important dates in history. Wanna be one of them?");
         messageList.add("Just wanted to say hi...;)");
-
+        messageList.add("Tristan Gaebler");
+        messageList.add("Bodie Shane");
+        messageList.add("Colm Laro");
+        messageList.add("Ashton Brown");
+        messageList.add("Braden Mabey");
+        messageList.add("Tyler Jarrard");
 
 
         loadSpinner();
