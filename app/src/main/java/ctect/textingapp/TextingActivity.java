@@ -83,7 +83,7 @@ public class TextingActivity extends AppCompatActivity {
         messageList.add("I want our love to be like pi, irrational and never ending.");
         messageList.add("Do you believe in love at first sight, or should I walk by again?");
         messageList.add("Kissing burns 5 calories a minute. How about a workout?");
-        messageList.add("A boy gives a girl 12 roses. 11 real, 1 fake and he says to her \" I will stop loving you when all the roses die");
+        messageList.add("A boy gives a girl 12 roses. 11 real, 1 fake and he says to her  I will stop loving you when all the roses die");
         messageList.add("Let's commit the perfect crime: I'll steal you're heart, and you'll steal mine.");
         messageList.add("I've got skittles in my mouth, wanna taste the rainbow?");
         messageList.add("I hope you know CPR, because you take my breath away!");
