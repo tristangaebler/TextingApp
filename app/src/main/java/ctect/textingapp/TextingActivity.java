@@ -31,14 +31,14 @@ import java.util.ArrayList;
 public class TextingActivity extends AppCompatActivity {
 
     private Button startButton;
-    private Button dadContact;
-    private Button momContact;
     private TextView titleBox;
     private EditText phoneNumber;
     private EditText TextMessage;
     private RelativeLayout backgroundLayout;
     private Spinner  textSpinner;
+    private Spinner numberSpinner;
     private ArrayList<String> messageList;
+    private ArrayList<String> phoneList;
 
 
     @Override
@@ -48,17 +48,17 @@ public class TextingActivity extends AppCompatActivity {
 
         //Init for the variables startButton and titleBox
         startButton = (Button) findViewById(R.id.StartButton);
-        dadContact = (Button) findViewById(R.id.dadContact);
-        momContact = (Button) findViewById(R.id.momContact);
         titleBox = (TextView) findViewById(R.id.titleBox);
         phoneNumber = (EditText) findViewById(R.id.phoneNumber);
         TextMessage = (EditText) findViewById(R.id.TextMessage);
         backgroundLayout = (RelativeLayout) findViewById(R.id.backgroundLayout);
         textSpinner = (Spinner) findViewById(R.id.spinner);
+        numberSpinner = (Spinner) findViewById(R.id.numberSpinner);
+
 
         //ArrayList with warm message greetings
         messageList = new ArrayList<String>();
-        messageList.add("");
+        messageList.add("Enter a message or select from the list.");
         messageList.add("Hi, how are you doing");
         messageList.add("Hi mom, I learned how to create a text message app today!");
         messageList.add("Text me like one of your French girls ;)");
@@ -71,9 +71,18 @@ public class TextingActivity extends AppCompatActivity {
         messageList.add("Ashton Brown");
         messageList.add("Braden Mabey");
         messageList.add("Tyler Jarrard");
+        messageList.add("");
 
+        phoneList = new ArrayList<String>();
+        phoneList.add("Enter a number, or select from the list.");
+        phoneList.add("8012441454");
+        phoneList.add("8015583942");
+        phoneList.add("3852889199");
+        phoneList.add("8017507515");
+        phoneList.add("");
 
         loadSpinner();
+        loadSpinnerP();
         setUpListeners();
     }
 
@@ -81,6 +90,13 @@ public class TextingActivity extends AppCompatActivity {
         ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, messageList);
         listAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         textSpinner.setAdapter(listAdapter);
+
+    }
+
+    private void loadSpinnerP() {
+        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, phoneList);
+        listAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        numberSpinner.setAdapter(listAdapter);
 
     }
 
@@ -140,22 +156,13 @@ public class TextingActivity extends AppCompatActivity {
 
 
     private void setUpListeners() {
-        momContact.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View buttonView) {
-                phoneNumber.setText("8014626010");
-            }
-        });
-        dadContact.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View buttonView) {
-                phoneNumber.setText("16502530000");
-            }
-        });
         startButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View buttonView) {
                 sendSMSMessage();
                 changeBackgroundColor();
             }
         });
+
         textSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 TextMessage.setText(textSpinner.getSelectedItem().toString());
@@ -163,6 +170,16 @@ public class TextingActivity extends AppCompatActivity {
 
             public void onNothingSelected(AdapterView<?> parent) {
                 TextMessage.setText("");
+            }
+        });
+
+        numberSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                phoneNumber.setText(numberSpinner.getSelectedItem().toString());
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) {
+                phoneNumber.setText("");
             }
         });
     }
