@@ -65,7 +65,6 @@ public class TextingActivity extends AppCompatActivity {
         messageList.add("");
         messageList.add("Hi, how are you doing");
         messageList.add("Hi mom, I learned how to create a text message app today!");
-        messageList.add("Text me like one of your French girls ;)");
         messageList.add("Error your message could not be sent. Please try again later. Error number: 362950");
         messageList.add("I'm learning about important dates in history. Wanna be one of them?");
         messageList.add("Just wanted to say hi...;)");
