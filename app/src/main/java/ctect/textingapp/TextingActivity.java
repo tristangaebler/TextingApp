@@ -12,10 +12,11 @@ import android.view.View;
 import android.graphics.Color;
 import android.telephony.SmsManager;
 import android.widget.Toast;
-import android.content.Intent;
 
 
-public class TextingActivity extends AppCompatActivity {
+
+public class TextingActivity extends AppCompatActivity
+{
 
     private Button startButton;
     private TextView titleBox;
@@ -25,7 +26,8 @@ public class TextingActivity extends AppCompatActivity {
     private Button contactButton;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_texting);
 
@@ -41,7 +43,8 @@ public class TextingActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_texting, menu);
         return true;
@@ -49,21 +52,24 @@ public class TextingActivity extends AppCompatActivity {
 
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings)
+        {
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void changeBackgroundColor() {
+    private void changeBackgroundColor()
+    {
         int redColor;
         int greenColor;
         int blueColor;
@@ -76,7 +82,8 @@ public class TextingActivity extends AppCompatActivity {
 
     }
 
-    protected void sendSMSMessage() {
+    protected void sendSMSMessage()
+    {
 
         String phoneNo = phoneNumber.getText().toString();
         String message = TextMessage.getText().toString();
@@ -95,9 +102,12 @@ public class TextingActivity extends AppCompatActivity {
     }
 
 
-    private void setUpListeners() {
-        startButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View buttonView){
+    private void setUpListeners()
+    {
+        startButton.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View buttonView)
+            {
                 sendSMSMessage();
                 changeBackgroundColor();
             }
