@@ -75,17 +75,14 @@ public class TextingActivity extends AppCompatActivity {
         messageList.add("Can I tie your shoe? Because I can't have you fall for anyone else.");
         messageList.add("Do you have a name or can I call you mine?");
         messageList.add("Are you Google? Because I've just found what I've been searching for.");
-        messageList.add("If you stood in front of a mirror and held up 11 roses, you would see 12 of the most beautiful things in the world.");
         messageList.add("Guess what I'm wearing? The smile you gave me.");
         messageList.add("Even if there wasn't any gravity on earth, I would still fall for you!");
         messageList.add("Your hand looks heavy. Let me hold it for you.");
         messageList.add("I need some answers for my math homework. Quick. What's your number?");
         messageList.add("I want our love to be like pi, irrational and never ending.");
         messageList.add("Do you believe in love at first sight, or should I walk by again?");
-        messageList.add("Kissing burns 5 calories a minute. How about a workout?");
         messageList.add("A boy gives a girl 12 roses. 11 real, 1 fake and he says to her  I will stop loving you when all the roses die");
         messageList.add("Let's commit the perfect crime: I'll steal you're heart, and you'll steal mine.");
-        messageList.add("I've got skittles in my mouth, wanna taste the rainbow?");
         messageList.add("I hope you know CPR, because you take my breath away!");
         messageList.add("Tristan Gaebler");
         messageList.add("Bodie Shane");
