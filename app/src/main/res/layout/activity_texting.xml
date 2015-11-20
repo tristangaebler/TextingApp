@@ -4,68 +4,92 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".TextingActivity"
-    android:id="@+id/backgroundLayout">
+    android:id="@+id/backgroundLayout"
+                android:background="@android:color/darker_gray">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/StartButton"
         android:id="@+id/StartButton"
-        android:layout_marginTop="34dp"
         android:layout_below="@+id/spinner"
-        android:layout_alignLeft="@+id/titleBox"
-        android:layout_alignStart="@+id/titleBox"
-        android:layout_alignRight="@+id/titleBox"
-        android:layout_alignEnd="@+id/titleBox" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/phoneNumber"
-        android:hint="@string/PhoneNumber"
-        android:visibility="visible"
-        android:layout_marginTop="45dp"
-        android:layout_below="@+id/titleBox"
+        android:layout_marginTop="27dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/spinner"
+        android:layout_alignEnd="@+id/spinner"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/TextMessage"
-        android:hint="@string/TextMessage"
+        android:hint="Text Message"
         android:visibility="visible"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/numberSpinner"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/TextingBox"
-        android:id="@+id/titleBox"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:theme="@style/AppTheme"
-        android:textSize="24dp" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="58dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
 
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/spinner"
-        android:layout_marginTop="22dp"
         android:layout_below="@+id/TextMessage"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/numberSpinner"
-        android:layout_below="@+id/phoneNumber"
+        android:layout_below="@+id/phoneText"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/phoneText"
+        android:hint="Phone Number"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Random Color"
+        android:id="@+id/colorButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:id="@+id/stopButton"
+        android:layout_alignTop="@+id/colorButton"
+        android:layout_toRightOf="@+id/goButton"
+        android:layout_toEndOf="@+id/goButton"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:id="@+id/goButton"
+        android:layout_alignTop="@+id/stopButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
 
 </RelativeLayout>

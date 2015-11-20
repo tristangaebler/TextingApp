@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">TextingApp</string>
+    <string name="app_name">Texting</string>
     <string name="action_settings">Settings</string>
-    <string name="TextingBox">Welcome to our app!</string>
+    <string name="TextingBox">Texting</string>
     <string name="StartButton">Send</string>
     <string name="PhoneNumber">Please enter a phone number.</string>
     <string name="TextMessage">Please enter your text message</string>

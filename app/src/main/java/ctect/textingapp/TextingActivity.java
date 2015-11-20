@@ -16,75 +16,90 @@ import android.content.Intent;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.AdapterView;
-
-
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
-
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 /**
  * @author Tristan Gaebler, Bodie Shane, Colm Laro, Ashton Brown, Braden Mabey, and tyler Jarrard.
  */
 
-public class TextingActivity extends AppCompatActivity {
+public class TextingActivity extends AppCompatActivity
+{
 
     private Button startButton;
-    private TextView titleBox;
-    private EditText phoneNumber;
+    private Button colorButton;
+    private Button goButton;
+    private Button stopButton;
     private EditText TextMessage;
     private RelativeLayout backgroundLayout;
     private Spinner  textSpinner;
     private Spinner numberSpinner;
     private ArrayList<String> messageList;
     private ArrayList<String> phoneList;
+    private EditText phoneText;
+    private Timer myTimer;
+    private TimerTask myTimerTask;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_texting);
 
         //Init for the variables startButton and titleBox
         startButton = (Button) findViewById(R.id.StartButton);
-        titleBox = (TextView) findViewById(R.id.titleBox);
-        phoneNumber = (EditText) findViewById(R.id.phoneNumber);
+        colorButton = (Button) findViewById(R.id.colorButton);
+        goButton = (Button) findViewById(R.id.goButton);
+        stopButton = (Button) findViewById(R.id.stopButton);
         TextMessage = (EditText) findViewById(R.id.TextMessage);
         backgroundLayout = (RelativeLayout) findViewById(R.id.backgroundLayout);
         textSpinner = (Spinner) findViewById(R.id.spinner);
         numberSpinner = (Spinner) findViewById(R.id.numberSpinner);
+        phoneText = (EditText) findViewById(R.id.phoneText);
+        myTimer = new Timer();
+
+        myTimerTask = new TimerTask()
+        {
+            @Override
+            public void run()
+            {
+                changeBackgroundColor();
+            }
+        };
 
 
-        //ArrayList with warm message greetings
+        //ArrayList with messages
         messageList = new ArrayList<String>();
-        messageList.add("Enter a message or select from the list.");
+        messageList.add("");
         messageList.add("Hi, how are you doing");
         messageList.add("Hi mom, I learned how to create a text message app today!");
         messageList.add("Text me like one of your French girls ;)");
         messageList.add("Error your message could not be sent. Please try again later. Error number: 362950");
         messageList.add("I'm learning about important dates in history. Wanna be one of them?");
         messageList.add("Just wanted to say hi...;)");
-        messageList.add("Tristan Gaebler");
-        messageList.add("Bodie Shane");
         messageList.add("Colm Laro");
-        messageList.add("Ashton Brown");
-        messageList.add("Braden Mabey");
-        messageList.add("Tyler Jarrard");
-        messageList.add("");
 
+        //ArrayList with numbers
         phoneList = new ArrayList<String>();
-        phoneList.add("Enter a number, or select from the list.");
+        phoneList.add("");
         phoneList.add("8012441454");
         phoneList.add("8015583942");
         phoneList.add("3852889199");
         phoneList.add("8017507515");
-        phoneList.add("");
 
         loadSpinner();
         loadSpinnerP();
         setUpListeners();
     }
+
+    /**
+     * These methods use the array lists and populate the spinners for texts and numbers
+     */
 
     private void loadSpinner() {
         ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, messageList);
@@ -134,11 +149,16 @@ public class TextingActivity extends AppCompatActivity {
 
         backgroundLayout.setBackgroundColor(Color.rgb(redColor, greenColor, blueColor));
 
+        redColor = (int) (Math.random() * 256);
+        greenColor = (int) (Math.random() * 256);
+        blueColor = (int) (Math.random() * 256);
+
+        colorButton.setBackgroundColor(Color.rgb(redColor, greenColor, blueColor));
     }
 
     protected void sendSMSMessage() {
 
-        String phoneNo = phoneNumber.getText().toString();
+        String phoneNo = phoneText.getText().toString();
         String message = TextMessage.getText().toString();
 
         try {
@@ -148,23 +168,51 @@ public class TextingActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(),
-                    "SMS faild, please try again.",
+                    "SMS failed, please try again.",
                     Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
     }
 
 
-    private void setUpListeners() {
-        startButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View buttonView) {
+    private void setUpListeners()
+    {
+        startButton.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View buttonView)
+            {
                 sendSMSMessage();
+            }
+        });
+
+        colorButton.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View buttonView)
+            {
                 changeBackgroundColor();
             }
         });
 
-        textSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        goButton.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View buttonView)
+            {
+                myTimer.scheduleAtFixedRate(myTimerTask, 0, 5000);
+            }
+        });
+
+        stopButton.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View buttonView)
+            {
+                myTimer.cancel();
+            }
+        });
+
+        textSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id)
+            {
                 TextMessage.setText(textSpinner.getSelectedItem().toString());
             }
 
@@ -175,11 +223,11 @@ public class TextingActivity extends AppCompatActivity {
 
         numberSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                phoneNumber.setText(numberSpinner.getSelectedItem().toString());
+                phoneText.setText(numberSpinner.getSelectedItem().toString());
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
-                phoneNumber.setText("");
+                phoneText.setText("");
             }
         });
     }
